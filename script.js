@@ -26,18 +26,9 @@ const getSum = () => {
     totalPrice += parseFloat(priceElement.textContent);
   });
   
-  // Create a new row and cell for the total
-  const newRow = document.createElement("tr");
-  const newCell = document.createElement("td");
-  
-  newCell.setAttribute("colspan", "2");
-  newCell.textContent = `Total Price: Rs ${totalPrice.toFixed(2)}`;
-  
-  newRow.appendChild(newCell);
-  
-  // Find the table and append the new row at the end
-  const table = document.querySelector("table");
-  table.appendChild(newRow);
+  // Update the last cell of the "Prices in Rs" column with the total price
+  const lastPriceCell = document.querySelector(".price:last-child");
+  lastPriceCell.textContent = `Total Price: Rs ${totalPrice.toFixed(2)}`;
 };
 
 getSumBtn.addEventListener("click", getSum);
